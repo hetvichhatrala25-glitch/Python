@@ -24,7 +24,6 @@ while True:
         student_id = len(students) + 1
 
         print("\nEnter Student Details")
-
         name = input("Name: ")
         age = int(input("Age: "))
         grade = input("Grade: ")
