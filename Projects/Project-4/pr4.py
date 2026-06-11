@@ -128,8 +128,6 @@ def exit_program():
     print("\nThank you for using the Data Analyzer and Transformer Program. Goodbye!")
 
 
-# ---------------- MAIN PROGRAM ----------------
-
 print("Welcome to the Data Analyzer and Transformer Program")
 
 while True:
