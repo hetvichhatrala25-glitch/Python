@@ -1,5 +1,7 @@
 dataset = []
 
+print(__doc__)
+
 print("Welcome to the Data Analyzer and Transformer Program")
 
 while True:
@@ -17,95 +19,120 @@ while True:
 
     if choice == 1:
 
-        print("\nInput Data")
+        def input_data():
+            
+            global dataset
 
-        data = input("Enter data for a 1D array (separated by spaces): ")
+            print("\n" + input_data.__doc__)
 
-        dataset=[int(i) for i in data.split()]
+            data = input("Enter data for a 1D array (separated by spaces): ")
+            dataset = [int(i) for i in data.split()]
 
-        print("Data has been stored successfully!")
+            print("Data has been stored successfully!")
+
+        input_data()
 
     elif choice == 2:
 
-        print("\nDisplay Data Summary (Built-in Functions)")
+        def display_summary():
 
-        print("Data Summary:")
-        print("Total elements:", len(dataset))
-        print("Minimum value:", min(dataset))
-        print("Maximum value:", max(dataset))
-        print("Sum of all values:", sum(dataset))
-        print("Average value:", round(sum(dataset) / len(dataset), 2))
+            print("\n" + display_summary.__doc__)
+
+            print("Total elements:", len(dataset))
+            print("Minimum value:", min(dataset))
+            print("Maximum value:", max(dataset))
+            print("Sum of all values:", sum(dataset))
+            print("Average value:", round(sum(dataset) / len(dataset), 2))
+
+        display_summary()
 
     elif choice == 3:
 
-        print("\nCalculate Factorial (Recursion)")
-
-        num = int(input("Enter a number to calculate its factorial: "))
-
         def factorial(n):
+
             if n == 0 or n == 1:
                 return 1
+
             return n * factorial(n - 1)
 
-        print("Factorial of", num, "is:", factorial(num))
+        def calculate_factorial():
+
+            print("\n" + calculate_factorial.__doc__)
+
+            num = int(input("Enter a number to calculate its factorial: "))
+            print("Factorial of", num, "is:", factorial(num))
+
+        calculate_factorial()
 
     elif choice == 4:
 
-        print("\nFilter Data by Threshold (Lambda Function)")
+        def filter_data():
 
-        threshold = int(input("Enter a threshold value: "))
+            print("\n" + filter_data.__doc__)
 
+            threshold = int(input("Enter a threshold value: "))
 
-        choice = int(input("1. Values >= Threshold\n2. Values < Threshold\nEnter your choice: "))
+            option = int(input(
+                "1. Values >= Threshold\n"
+                "2. Values < Threshold\n"
+                "Enter your choice: "
+            ))
 
-        if choice == 1:
-            print("Filtered Data (values >= threshold):")
-            for value in dataset:
-                if value >= threshold:
-                    print(value, end=" ")
+            if option == 1:
+                print("Filtered Data (values >= threshold):")
+                for value in dataset:
+                    if value >= threshold:
+                        print(value, end=" ")
 
-        elif choice == 2:
-            print("Filtered Data (values < threshold):")
-            for value in dataset:
-                if value < threshold:
-                    print(value, end=" ")
+            elif option == 2:
+                print("Filtered Data (values < threshold):")
+                for value in dataset:
+                    if value < threshold:
+                        print(value, end=" ")
 
-        else:
-            print("Invalid choice!")
+            else:
+                print("Invalid choice!")
 
-        print()
+            print()
+
+        filter_data()
 
     elif choice == 5:
 
-        print("\nSort Data")
+        def sort_data():
 
-        print("1. Ascending")
-        print("2. Descending")
+            print("\n" + sort_data.__doc__)
 
-        sort_choice = int(input("Enter your choice: "))
+            print("1. Ascending")
+            print("2. Descending")
 
-        temp = dataset.copy()
+            sort_choice = int(input("Enter your choice: "))
 
-        if sort_choice == 1:
-            temp.sort()
-            print("Sorted Data in Ascending Order:")
-        elif sort_choice == 2:
-            temp.sort(reverse=True)
-            print("Sorted Data in Descending Order:")
-        else:
-            print("Invalid choice")
-            continue
+            temp = dataset.copy()
 
-        for value in temp:
-            print(value, end=" ")
+            if sort_choice == 1:
+                temp.sort()
+                print("Sorted Data in Ascending Order:")
 
-        print()
+            elif sort_choice == 2:
+                temp.sort(reverse=True)
+                print("Sorted Data in Descending Order:")
+
+            else:
+                print("Invalid choice")
+                return
+
+            for value in temp:
+                print(value, end=" ")
+
+            print()
+
+        sort_data()
 
     elif choice == 6:
 
-        print("\nDisplay Dataset Statistics (Return Multiple Values)")
-
         def dataset_statistics():
+
             minimum = min(dataset)
             maximum = max(dataset)
             total = sum(dataset)
@@ -113,18 +140,27 @@ while True:
 
             return minimum, maximum, total, average
 
-        minimum, maximum, total, average = dataset_statistics()
+        def display_statistics():
 
-        print("Dataset Statistics:")
-        print("Minimum value:", minimum)
-        print("Maximum value:", maximum)
-        print("Sum of all values:", total)
-        print("Average value:", round(average, 2))
+            print("\n" + display_statistics.__doc__)
+
+            minimum, maximum, total, average = dataset_statistics()
+
+            print("Minimum value:", minimum)
+            print("Maximum value:", maximum)
+            print("Sum of all values:", total)
+            print("Average value:", round(average, 2))
+
+        display_statistics()
 
     elif choice == 7:
 
-        print("\nExit Program")
-        print("Thank you for using the Data Analyzer and Transformer Program. Goodbye!")
+        def exit_program():
+
+            print("\n" + exit_program.__doc__)
+            print("Thank you for using the Data Analyzer and Transformer Program. Goodbye!")
+
+        exit_program()
         break
 
     else:
